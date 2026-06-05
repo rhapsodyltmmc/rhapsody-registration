@@ -94,7 +94,7 @@ The Voice of Sionites
 <div class="intro">
 
 Welcome to the registration portal for
-<b>Rhapsody 2026</b>, the annual magazine of
+<b>Rhapsody 2026</b>, the official magazine of
 Lokmanya Tilak Municipal Medical College.
 
 <br><br>
@@ -205,7 +205,13 @@ email:email
 })
 
 .then(response => response.json())
+document.getElementById("spinner").style.display="none";
 
+document.getElementById("loadingText").style.display="none";
+
+document.getElementById("registerBtn").disabled=false;
+
+document.getElementById("registerBtn").innerHTML="Register";
 .then(data => {
 
 document.getElementById("message").innerHTML =
@@ -214,7 +220,13 @@ data.message;
 })
 
 .catch(error => {
+document.getElementById("spinner").style.display="none";
 
+document.getElementById("loadingText").style.display="none";
+
+document.getElementById("registerBtn").disabled=false;
+
+document.getElementById("registerBtn").innerHTML="Register";
 document.getElementById("message").innerHTML =
 "Submission failed.";
 
