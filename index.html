@@ -284,36 +284,27 @@ document.getElementById("registerBtn").disabled=true;
 document.getElementById("registerBtn").innerHTML="Registering...";
 
 fetch(API_URL, {
-
-method: "POST",
-
-body: JSON.stringify({
-
-name:name,
-batch:batch,
-roll:roll,
-contact:contact,
-email:email
-
+  method: "POST",
+  body: JSON.stringify({
+    name: name,
+    batch: batch,
+    roll: roll,
+    contact: contact,
+    email: email
+  })
 })
-
-})
-
 .then(response => response.json())
-document.getElementById("spinner").style.display="none";
-
-document.getElementById("loadingText").style.display="none";
-
-document.getElementById("registerBtn").disabled=false;
-
-document.getElementById("registerBtn").innerHTML="Register";
 .then(data => {
 
-document.getElementById("message").innerHTML =
-data.message;
+  document.getElementById("spinner").style.display = "none";
+  document.getElementById("loadingText").style.display = "none";
+
+  document.getElementById("registerBtn").disabled = false;
+  document.getElementById("registerBtn").innerHTML = "Register";
+
+  document.getElementById("message").innerHTML = data.message;
 
 })
-
 .catch(error => {
 document.getElementById("spinner").style.display="none";
 
