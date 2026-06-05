@@ -1,14 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Rhapsody Registration</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Rhapsody 2026 Registration</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+padding:20px;
+}
+
+.container{
+max-width:600px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input,select,button{
+width:100%;
+padding:12px;
+margin-top:10px;
+box-sizing:border-box;
+}
+
+button{
+cursor:pointer;
+}
+
+#message{
+margin-top:15px;
+font-weight:bold;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Rhapsody Registration Portal</h1>
+<div class="container">
 
-<p>If you can see this page, GitHub Pages is working.</p>
+<h1>Rhapsody 2026</h1>
+
+<p>
+Magazine Registration Portal
+</p>
+
+<input id="name" placeholder="Full Name">
+
+<select id="batch">
+
+<option value="">Select Batch</option>
+
+<option>PT</option>
+<option>OT</option>
+
+<option>MBBS 2020</option>
+<option>MBBS 2021</option>
+<option>MBBS 2022</option>
+<option>MBBS 2023</option>
+<option>MBBS 2024</option>
+<option>MBBS 2025</option>
+
+</select>
+
+<input id="roll" type="number" placeholder="Roll Number">
+
+<input id="contact" placeholder="Contact Number">
+
+<input id="email" type="email" placeholder="Email Address">
+
+<button onclick="registerUser()">
+Register
+</button>
+
+<div id="message"></div>
+
+</div>
+
+<script>
+
+const API_URL = "https://script.google.com/macros/s/AKfycbw_cqSaJoRNMWsITfIYv0bT4tX3iD9Fs2WX0dNEng6EK654m8LMl3BWrGUGUyfrFgXwHw/exec";
+
+function registerUser(){
+
+const name =
+document.getElementById("name").value.trim();
+
+const batch =
+document.getElementById("batch").value;
+
+const roll =
+document.getElementById("roll").value.trim();
+
+const contact =
+document.getElementById("contact").value.trim();
+
+const email =
+document.getElementById("email").value.trim();
+
+if(!name || !batch || !roll || !contact || !email){
+
+document.getElementById("message").innerHTML =
+"Please fill all fields.";
+
+return;
+
+}
+
+fetch(API_URL, {
+
+method: "POST",
+
+body: JSON.stringify({
+
+name:name,
+batch:batch,
+roll:roll,
+contact:contact,
+email:email
+
+})
+
+})
+
+.then(response => response.json())
+
+.then(data => {
+
+document.getElementById("message").innerHTML =
+data.message;
+
+})
+
+.catch(error => {
+
+document.getElementById("message").innerHTML =
+"Submission failed.";
+
+});
+
+}
+
+</script>
 
 </body>
 </html>
