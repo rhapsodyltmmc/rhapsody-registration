@@ -8,6 +8,87 @@
 <title>Rhapsody 2026 Registration</title>
 
 <style>
+  .container{
+max-width:650px;
+margin:auto;
+padding:20px;
+}
+
+.formCard{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+margin-top:20px;
+}
+
+.formTitle{
+font-size:28px;
+font-weight:700;
+text-align:center;
+margin-bottom:8px;
+}
+
+.formSubtitle{
+text-align:center;
+color:#666;
+margin-bottom:25px;
+font-size:14px;
+}
+
+input,
+select{
+width:100%;
+padding:14px 16px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:15px;
+box-sizing:border-box;
+transition:0.2s;
+}
+
+input:focus,
+select:focus{
+outline:none;
+border-color:#000;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:25px;
+border:none;
+border-radius:10px;
+background:#000;
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+#message{
+margin-top:18px;
+text-align:center;
+font-weight:600;
+}
+  .fieldLabel{
+
+display:block;
+
+margin-top:16px;
+
+margin-bottom:6px;
+
+font-weight:600;
+
+font-size:14px;
+
+}
   .spinner{
 
 display:none;
@@ -103,14 +184,20 @@ Each successful registration reserves one copy of the magazine, subject to batch
 
 </div>
 
-<h1>Rhapsody 2026</h1>
+<div class="formCard">
 
-<p>
-Magazine Registration Portal
-</p>
+<div class="formTitle">
+Magazine Registration
+</div>
 
-<input id="name" placeholder="Full Name">
+<div class="formSubtitle">
+Reserve your copy of Rhapsody 2026
+</div>
 
+<label class="fieldLabel">Full Name</label>
+<input id="name" placeholder="Enter your full name">
+
+<label class="fieldLabel">Batch</label>
 <select id="batch">
 
 <option value="">Select Batch</option>
@@ -127,25 +214,33 @@ Magazine Registration Portal
 
 </select>
 
-<input id="roll" type="number" placeholder="Roll Number">
+<label class="fieldLabel">Roll Number</label>
+<input id="roll" type="number" min="1" max="200"
+placeholder="Enter your roll number">
 
-<input id="contact" placeholder="Contact Number">
+<label class="fieldLabel">Contact Number</label>
+<input id="contact"
+placeholder="10-digit mobile number">
 
-<input id="email" type="email" placeholder="Email Address">
+<label class="fieldLabel">Email Address</label>
+<input id="email" type="email"
+placeholder="Enter your email address">
 
-<button onclick="registerUser()">
+<button id="registerBtn"
+onclick="registerUser()">
 Register
 </button>
-  <div id="spinner" class="spinner"></div>
+
+<div id="spinner" class="spinner"></div>
 
 <div id="loadingText"
 style="display:none;text-align:center;margin-bottom:15px;">
-
 Please wait while we reserve your copy...
-
 </div>
 
 <div id="message"></div>
+
+</div>
 
 </div>
 
