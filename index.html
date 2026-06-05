@@ -178,6 +178,15 @@ document.getElementById("message").innerHTML =
 return;
 
 }
+  document.getElementById("spinner").style.display="block";
+
+document.getElementById("loadingText").style.display="block";
+
+document.getElementById("message").innerHTML="";
+
+document.getElementById("registerBtn").disabled=true;
+
+document.getElementById("registerBtn").innerHTML="Registering...";
 
 fetch(API_URL, {
 
